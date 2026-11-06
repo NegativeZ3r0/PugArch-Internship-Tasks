@@ -1,50 +1,39 @@
-import { Component } from '@angular/core';
-import { CommonModule } from '@angular/common'; // Required for *ngFor
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonListHeader } from '@ionic/angular';
+import { Component, inject, signal, computed } from '@angular/core';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonListHeader, IonItem, IonSegment, IonSegmentButton } from '@ionic/angular';
 import { TaskItemComponent } from '../components/task-item/task-item.component';
-
-type TaskStatus = 'To Do' | 'In Progress' | 'Completed';
-
-interface Task {
-  title: string;
-  description: string;
-  status: TaskStatus;
-}
+import { TasksService, Task } from '../services/tasks';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   imports: [
-    CommonModule, IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonListHeader,
+    IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonListHeader, IonItem, IonSegment, IonSegmentButton,
     TaskItemComponent // <-- Add the child component here
   ],
 })
 export class HomePage {
+  // 1. Inject service directly as a property
+  private tasksService = inject(TasksService);
 
-  // Feed the mock data to the template
-  mockTasks: Task[] = [
-    {
-      title: "Configure CI/CD Pipeline",
-      description: "Set up GitHub Actions to automate testing and deployment for the main branch.",
-      status: "Completed"
-    },
-    {
-      title: "Implement User Authentication",
-      description: "Integrate JWT-based login and registration endpoints using Node.js.",
-      status: "In Progress"
-    },
-    {
-      title: "Design Database Schema",
-      description: "Create an ER diagram and draft SQL tables for the inventory management module.",
-      status: "To Do"
-    },
-    {
-      title: "Optimize API Performance",
-      description: "Implement Redis caching on the product catalog endpoint to reduce latency.",
-      status: "To Do"
+  // 2. Define reactive state using Signals
+  tasks = signal<Task[]>(this.tasksService.getTasks());
+  currentFilter = signal<string>('All');
+
+  // 3. Create a derived state that automatically updates when 'currentFilter' changes
+  filteredTasks = computed(() => {
+    const filter = this.currentFilter();
+    const allTasks = this.tasks();
+
+    if (filter === 'All') {
+      return allTasks;
     }
-  ];
+    return allTasks.filter(task => task.status === filter);
+  });
 
+  // 4. Event handler for the Ionic segment
+  onFilterChange(event: any) {
+    this.currentFilter.set(event.detail.value);
+  }
   constructor() {}
 }

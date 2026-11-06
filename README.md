@@ -28,3 +28,9 @@ $ npx ionic serve
 ```
 ## Day-2
 Created a home screen with a list of packages and version chips.
+
+## Day-3
+Created ToDo list
+- mock tasks data provided by an anguler service from `services/tasks`
+- added list filter component using `ion-segment`
+- type model defined in task-item component in `components/task-item`

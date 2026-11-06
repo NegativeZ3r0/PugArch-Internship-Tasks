@@ -5,16 +5,36 @@
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
+
+  <ion-segment value="All" scrollable="true" (ionChange)="onFilterChange($event)">
+    <ion-segment-button value="All">
+      <ion-label>All</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="To Do">
+      <ion-label>To Do</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="In Progress">
+      <ion-label>In Progress</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="Completed">
+      <ion-label>Completed</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
   <ion-list>
     <ion-list-header>
       <ion-label>Task List</ion-label>
     </ion-list-header>
 
-    <!-- Iterate and pass the individual task object to the child component -->
-    <app-task-item
-      *ngFor="let currentTask of mockTasks"
-      [task]="currentTask">
-    </app-task-item>
+    @for (currentTask of filteredTasks(); track currentTask.title) {
+      <app-task-item [task]="currentTask"></app-task-item>
+    } @empty {
+      <ion-item>
+        <ion-label class="ion-text-center">
+          <p>No tasks found for this status.</p>
+        </ion-label>
+      </ion-item>
+    }
 
   </ion-list>
 </ion-content>
