@@ -13,7 +13,7 @@ initial setup is done, versions of dependencies used:
 ### Running setup for development
 1. git clone the repository and move into project directory
 ```bash
-$ git clone <repo-link>
+$ git clone https://github.com/NegativeZ3r0/PugArch-Internship-Tasks.git
 $ cd internship-tasks
 ```
 
