@@ -4,13 +4,8 @@
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
-    "ionic:serve:before": "node generate-versions.mts",
-    "ionic:build:before": "node generate-versions.mts",
-
     "ng": "ng",
-    "prestart": "node generate-versions.mts",
     "start": "ng serve",
-    "prebuild": "node generate-versions.mts",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",

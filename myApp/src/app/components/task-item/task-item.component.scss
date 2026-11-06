@@ -1,0 +1,36 @@
+#container p.task-desc {
+  font-size: 14px;
+  line-height: 1.4;
+  color: #666666;
+  margin: 0 0 12px 0;
+  white-space: normal; /* Forces Ionic labels to wrap text to the next line */
+}
+
+/* Base Chip Implementation */
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 16px; /* Creates the pill shape */
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Status-Specific Color Modifiers */
+.status-todo {
+  background-color: #f4f5f8;
+  color: #5f6368;
+}
+
+.status-progress {
+  background-color: #fff4e5;
+  color: #b26a00;
+}
+
+.status-completed {
+  background-color: #e6f4ea;
+  color: #137333;
+}

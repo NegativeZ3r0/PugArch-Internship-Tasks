@@ -1,41 +1,20 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Environment Versions</ion-title>
+    <ion-title>ToDo App</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true" class="ion-padding">
-
-  <!--<div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-    <h2></h2>
-  </div>-->
-
   <ion-list>
-    <ion-item>
-      <ion-label>Node.js</ion-label>
-      <ion-chip color="secondary" slot="end">{{ appVersions.node }}</ion-chip>
-    </ion-item>
+    <ion-list-header>
+      <ion-label>Task List</ion-label>
+    </ion-list-header>
 
-    <ion-item>
-      <ion-label>npm</ion-label>
-      <ion-chip color="secondary" slot="end">{{ appVersions.npm }}</ion-chip>
-    </ion-item>
+    <!-- Iterate and pass the individual task object to the child component -->
+    <app-task-item
+      *ngFor="let currentTask of mockTasks"
+      [task]="currentTask">
+    </app-task-item>
 
-    <ion-item>
-      <ion-label>TypeScript</ion-label>
-      <ion-chip color="secondary" slot="end">{{ appVersions.typescript }}</ion-chip>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Angular</ion-label>
-      <ion-chip color="secondary" slot="end">{{ appVersions.angular }}</ion-chip>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Ionic</ion-label>
-      <ion-chip color="secondary" slot="end">{{ appVersions.ionic }}</ion-chip>
-    </ion-item>
   </ion-list>
 </ion-content>
