@@ -1,4 +1,4 @@
-<ion-item lines="none">
+<ion-item lines="none" [routerLink]="['/task', task.id]" button>
   <ion-label>
     <h2>{{ task.title }}</h2>
     <p class="task-desc">{{ task.description }}</p>

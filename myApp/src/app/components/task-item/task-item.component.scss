@@ -3,7 +3,8 @@
   line-height: 1.4;
   color: #666666;
   margin: 0 0 12px 0;
-  white-space: normal; /* Forces Ionic labels to wrap text to the next line */
+  // white-space: normal; /* Forces Ionic labels to wrap text to the next line */
+  line-clamp: 1;
 }
 
 /* Base Chip Implementation */

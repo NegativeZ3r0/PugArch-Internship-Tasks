@@ -34,3 +34,8 @@ Created ToDo list
 - mock tasks data provided by an anguler service from `services/tasks`
 - added list filter component using `ion-segment`
 - type model defined in task-item component in `components/task-item`
+
+## Day-4
+Created list, detail, and settings pages with navigation.
+- added task details page (`pages/task-details`)
+- added settings page with dark mode toggle (`pages/settings`)

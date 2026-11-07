@@ -1,0 +1,20 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Settings</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-item lines="none">
+      <ion-toggle
+        [checked]="isDarkMode()"
+        (ionChange)="onToggleColorTheme($event)">
+        Enable Dark Mode
+      </ion-toggle>
+    </ion-item>
+  </ion-list>
+</ion-content>

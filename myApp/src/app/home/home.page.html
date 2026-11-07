@@ -1,6 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>ToDo App</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/settings">
+        Settings
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
@@ -22,6 +27,7 @@
   </ion-segment>
 
   <ion-list>
+
     <ion-list-header>
       <ion-label>Task List</ion-label>
     </ion-list-header>

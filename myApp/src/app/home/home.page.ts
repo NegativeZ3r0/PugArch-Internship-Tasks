@@ -1,14 +1,15 @@
 import { Component, inject, signal, computed } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonListHeader, IonItem, IonSegment, IonSegmentButton } from '@ionic/angular';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonListHeader, IonItem, IonSegment, IonSegmentButton, IonButton, IonButtons } from '@ionic/angular';
 import { TaskItemComponent } from '../components/task-item/task-item.component';
 import { TasksService, Task } from '../services/tasks';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   imports: [
-    IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonListHeader, IonItem, IonSegment, IonSegmentButton,
+    IonHeader, IonToolbar, IonTitle, IonContent, IonList, IonLabel, IonListHeader, IonItem, IonSegment, IonSegmentButton, IonButtons ,IonButton, RouterModule,
     TaskItemComponent // <-- Add the child component here
   ],
 })
