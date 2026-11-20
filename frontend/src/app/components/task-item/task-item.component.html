@@ -1,0 +1,47 @@
+<!-- task-item.component.html -->
+<ion-item lines="none" button detail="false">
+  <ion-label
+     [routerLink]="['/task-details', task().id]"
+     [class.completed]="task().status === 'completed'"
+     style="cursor: pointer;"
+   >
+    <h2>{{ task().title }}</h2>
+  </ion-label>
+
+  <ion-chip [color]="statusColor()" slot="end" class="status-chip">
+    <ion-select
+      interface="popover"
+      [value]="task().status"
+      (ionChange)="onStatusSelect($event)"
+      aria-label="Task status"
+    >
+      @for (option of statusOptions; track option.value) {
+        <ion-select-option [value]="option.value">
+          {{ option.label }}
+        </ion-select-option>
+      }
+    </ion-select>
+  </ion-chip>
+
+  <ion-button
+    slot="end"
+    fill="clear"
+    color="primary"
+    class="action-btn"
+    (click)="edit.emit(task())"
+    aria-label="Edit task"
+  >
+    <ion-icon name="create-outline" slot="icon-only"></ion-icon>
+  </ion-button>
+
+  <ion-button
+    slot="end"
+    fill="clear"
+    color="danger"
+    class="action-btn"
+    (click)="delete.emit(task().id)"
+    aria-label="Delete task"
+  >
+    <ion-icon name="trash-outline" slot="icon-only"></ion-icon>
+  </ion-button>
+</ion-item>

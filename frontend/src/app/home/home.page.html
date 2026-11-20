@@ -1,0 +1,45 @@
+<!-- home.page.html -->
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Task App</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div class="task-container">
+    <ion-segment
+      class="filter-segment"
+      [value]="selectedFilter()"
+      (ionChange)="onFilterChange($event)"
+    >
+      @for (option of filterOptions; track option.value) {
+        <ion-segment-button [value]="option.value">
+          <ion-label>{{ option.label }}</ion-label>
+        </ion-segment-button>
+      }
+    </ion-segment>
+
+    @if (filteredTasks().length > 0) {
+      <ion-list [inset]="true" class="task-list">
+        @for (task of filteredTasks(); track task.id) {
+          <app-task-item
+            [task]="task"
+            (edit)="openEditModal($event)"
+            (statusChange)="onStatusChange($event)"
+            (delete)="onDeleteTask($event)"
+          />
+        }
+      </ion-list>
+    } @else {
+      <div class="empty-state">
+        <p>{{ tasks().length === 0 ? 'No tasks yet.' : 'No tasks match this filter.' }}</p>
+      </div>
+    }
+  </div>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button (click)="openAddModal()" aria-label="Add task">
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

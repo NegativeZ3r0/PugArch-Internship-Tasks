@@ -1,0 +1,62 @@
+<!-- task-form.component.html -->
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>{{ isEditMode ? 'Edit Task' : 'New Task' }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()" class="task-form">
+    <ion-input
+      label="Title"
+      labelPlacement="stacked"
+      fill="outline"
+      placeholder="Enter task title"
+      formControlName="title"
+      errorText="Title is required"
+    ></ion-input>
+
+    <ion-textarea
+      label="Description"
+      labelPlacement="stacked"
+      fill="outline"
+      placeholder="Optional details"
+      [rows]="3"
+      [autoGrow]="true"
+      formControlName="description"
+    ></ion-textarea>
+
+    <ion-select
+      label="Status"
+      labelPlacement="stacked"
+      fill="outline"
+      interface="popover"
+      formControlName="status"
+    >
+      @for (option of statusOptions; track option.value) {
+        <ion-select-option [value]="option.value">
+          {{ option.label }}
+        </ion-select-option>
+      }
+    </ion-select>
+
+    <div class="form-actions">
+      <ion-button
+        type="button"
+        fill="clear"
+        color="medium"
+        (click)="onCancel()"
+      >
+        Cancel
+      </ion-button>
+      <ion-button
+        type="submit"
+        fill="solid"
+        color="primary"
+        [disabled]="form.invalid"
+      >
+        {{ isEditMode ? 'Update' : 'Add' }}
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

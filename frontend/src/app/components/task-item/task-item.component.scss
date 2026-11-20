@@ -1,0 +1,33 @@
+// task-item.component.scss
+.completed {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.status-chip {
+  padding-inline: 10px;
+  height: 28px;
+  margin-inline-end: 4px;
+
+  ion-select {
+    min-height: unset;
+    font-size: 0.8rem;
+    font-weight: 500;
+    --padding-start: 0;
+    --padding-end: 0;
+    --padding-top: 0;
+    --padding-bottom: 0;
+  }
+}
+
+.action-btn {
+  --padding-start: 10px;
+  --padding-end: 10px;
+  height: 40px;
+  width: 40px;
+  margin-inline-start: 4px;
+
+  ion-icon {
+    font-size: 20px; // Default inside clear buttons is ~18px
+  }
+}

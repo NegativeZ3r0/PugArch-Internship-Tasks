@@ -1,0 +1,66 @@
+<!-- task-detail.page.html -->
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="/home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Task Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="detail-container">
+    @if (task(); as currentTask) {
+      <ion-card class="task-card">
+        <ion-card-header>
+          <div class="header-top">
+            <ion-badge color="medium" class="id-badge">
+              #{{ currentTask.id }}
+            </ion-badge>
+          </div>
+          <ion-card-title class="task-title">
+            {{ currentTask.title }}
+          </ion-card-title>
+        </ion-card-header>
+
+        <ion-card-content>
+          <p class="task-description">
+            {{ currentTask.description || 'No description provided.' }}
+          </p>
+
+          <div class="status-box">
+            <span class="status-label">Status</span>
+            <ion-select
+              [value]="currentTask.status"
+              interface="popover"
+              (ionChange)="onStatusChange($event)"
+              aria-label="Task status"
+            >
+              @for (option of statusOptions; track option.value) {
+                <ion-select-option [value]="option.value">
+                  {{ option.label }}
+                </ion-select-option>
+              }
+            </ion-select>
+          </div>
+
+          <div class="action-buttons">
+            <ion-button (click)="openEditModal()">
+              <ion-icon slot="start" name="create-outline"></ion-icon>
+              Edit
+            </ion-button>
+            <ion-button color="danger" fill="outline" (click)="onDeleteTask()">
+              <ion-icon slot="start" name="trash-outline"></ion-icon>
+              Delete
+            </ion-button>
+          </div>
+        </ion-card-content>
+      </ion-card>
+    } @else {
+      <div class="empty-state">
+        <p>Task not found.</p>
+        <ion-button routerLink="/home">Back to Tasks</ion-button>
+      </div>
+    }
+  </div>
+</ion-content>

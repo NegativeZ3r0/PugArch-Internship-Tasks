@@ -1,0 +1,70 @@
+// task-detail.page.scss
+.detail-container {
+  max-width: 600px;
+  margin: 16px auto;
+}
+
+.task-card {
+  margin: 0;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.header-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.id-badge {
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.task-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.task-description {
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--ion-color-step-700, #cccccc);
+  margin-bottom: 24px;
+}
+
+.status-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 6px 14px;
+  border-radius: 10px;
+  margin-bottom: 24px;
+
+  .status-label {
+    font-weight: 500;
+    color: var(--ion-color-step-600, #aaaaaa);
+  }
+
+  ion-select {
+    width: auto;
+    font-weight: 600;
+  }
+}
+
+.action-buttons {
+  display: flex;
+  gap: 12px;
+
+  ion-button {
+    margin: 0;
+    --border-radius: 8px;
+  }
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 16px;
+}

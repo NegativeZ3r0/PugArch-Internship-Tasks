@@ -1,0 +1,21 @@
+{
+  "name": "ionic-task-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev:backend": "npm --prefix backend run dev",
+    "dev:frontend": "cd frontend && npx ionic serve",
+    "dev": "concurrently -n API,APP -c blue,green \"npm run dev:backend\" \"npm run dev:frontend\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "devDependencies": {
+    "@ionic/cli": "^7.2.1",
+    "concurrently": "^10.0.7"
+  },
+  "dependencies": {
+    "@ionic/angular": "^9.0.12"
+  }
+}

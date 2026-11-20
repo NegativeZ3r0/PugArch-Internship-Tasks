@@ -1,0 +1,38 @@
+// task-form.component.scss
+:host {
+  display: flex;
+  flex-direction: column;
+}
+
+ion-content {
+  --background: transparent;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding-top: 4px;
+
+  ion-input,
+  ion-textarea,
+  ion-select {
+    --border-radius: 8px;
+    --border-color: rgba(255, 255, 255, 0.2);
+    --highlight-color-focused: var(--ion-color-primary);
+  }
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+
+  ion-button {
+    --border-radius: 8px;
+    text-transform: none;
+    font-weight: 500;
+    margin: 0;
+  }
+}

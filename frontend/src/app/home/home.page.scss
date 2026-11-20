@@ -1,0 +1,32 @@
+// home.page.scss
+.task-container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 16px 8px;
+}
+
+.filter-segment {
+  margin-bottom: 16px;
+
+  ion-segment-button {
+    min-width: 0;
+    --padding-start: 6px;
+    --padding-end: 6px;
+    font-size: 0.85rem;
+  }
+}
+
+.task-list {
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.empty-state {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 80dvh;
+  color: var(--ion-color-medium);
+  font-size: 1rem;
+}
