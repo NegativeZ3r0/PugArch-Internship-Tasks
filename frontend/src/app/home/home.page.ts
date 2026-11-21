@@ -1,8 +1,9 @@
 // home.page.ts
 import { Component, inject, signal, computed } from '@angular/core';
-import { IonHeader, IonToolbar, IonTitle, IonContent, IonSegment, IonSegmentButton, IonLabel, IonList, IonFab, IonFabButton, IonIcon, ModalController } from '@ionic/angular';
+import { RouterModule } from '@angular/router';
+import { IonHeader, IonToolbar, IonTitle, IonContent, IonSegment, IonSegmentButton, IonLabel, IonList, IonFab, IonFabButton, IonIcon, ModalController, IonButtons, IonButton } from '@ionic/angular';
 import { addIcons } from 'ionicons';
-import { addOutline } from 'ionicons/icons';
+import { addOutline, settingsOutline } from 'ionicons/icons';
 
 import { TaskFormComponent } from '../components/task-form/task-form.component';
 import { TaskItemComponent } from '../components/task-item/task-item.component';
@@ -15,8 +16,8 @@ type TaskFilter = 'all' | TaskStatus;
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonIcon,
-    IonSegment, IonSegmentButton, IonLabel, IonList, IonFab, IonFabButton,
+  imports: [IonHeader, IonToolbar, IonTitle, IonContent, IonIcon, IonButtons, IonButton,
+    IonSegment, IonSegmentButton, IonLabel, IonList, IonFab, IonFabButton, RouterModule,
     TaskItemComponent],
 })
 export class HomePage {
@@ -44,7 +45,7 @@ export class HomePage {
   });
 
   constructor() {
-    addIcons({ addOutline });
+    addIcons({ addOutline, settingsOutline });
   }
 
   onFilterChange(event: CustomEvent): void {

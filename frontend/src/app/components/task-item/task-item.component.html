@@ -1,11 +1,13 @@
 <!-- task-item.component.html -->
-<ion-item lines="none" button detail="false">
+<ion-item lines="full">
   <ion-label
      [routerLink]="['/task-details', task().id]"
      [class.completed]="task().status === 'completed'"
+     class="ion-activatable task-label"
      style="cursor: pointer;"
    >
     <h2>{{ task().title }}</h2>
+    <ion-ripple-effect></ion-ripple-effect>
   </ion-label>
 
   <ion-chip [color]="statusColor()" slot="end" class="status-chip">

@@ -1,7 +1,7 @@
 // task-item.component.ts
 import { Component, computed, input, output } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { IonItem, IonLabel, IonChip, IonSelect, IonSelectOption, IonButton, IonIcon} from '@ionic/angular';
+import { IonItem, IonLabel, IonChip, IonSelect, IonSelectOption, IonButton, IonIcon, IonRippleEffect} from '@ionic/angular';
 import { addIcons } from 'ionicons';
 import { trashOutline, createOutline } from 'ionicons/icons';
 
@@ -21,6 +21,7 @@ import type { Task, TaskStatus } from '../../models/task.model';
     IonButton,
     IonIcon,
     RouterModule,
+    IonRippleEffect,
   ],
 })
 export class TaskItemComponent {

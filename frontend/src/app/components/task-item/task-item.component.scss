@@ -1,4 +1,5 @@
 // task-item.component.scss
+
 .completed {
   text-decoration: line-through;
   opacity: 0.6;
@@ -29,5 +30,21 @@
 
   ion-icon {
     font-size: 20px; // Default inside clear buttons is ~18px
+  }
+}
+
+.task-label {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  // Restore standard ion-item padding inside the label so the full row height is tappable
+  margin: 0;
+  padding: 14px 16px;
+
+  // Optional: subtle hover highlight for desktop/mouse users
+  transition: background-color 0.15s ease;
+  &:hover {
+    background-color: rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.04);
   }
 }
