@@ -2,6 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable, inject, signal } from '@angular/core';
 
+import { environment } from '../../environments/environment';
 import type { Task, TaskStatus, NewTask, UpdateTask } from '../models/task.model';
 
 @Injectable({
@@ -9,7 +10,7 @@ import type { Task, TaskStatus, NewTask, UpdateTask } from '../models/task.model
 })
 export class TasksService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/api/tasks';
+  private apiUrl = `${environment.apiUrl}/api/tasks`;
 
   private _tasks = signal<Task[]>([]);
   readonly tasks = this._tasks.asReadonly();
