@@ -4,7 +4,6 @@
      [routerLink]="['/task-details', task().id]"
      [class.completed]="task().status === 'completed'"
      class="ion-activatable task-label"
-     style="cursor: pointer;"
    >
     <h2>{{ task().title }}</h2>
     <ion-ripple-effect></ion-ripple-effect>
