@@ -6,13 +6,21 @@ import crypto from 'crypto';
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Combine local dev URLs with the Render environment variable (if present)
-const allowedOrigins = process.env.FRONTEND_URL ? [process.env.FRONTEND_URL.trim()] : ['http://localhost:8100', 'http://localhost:4200', /^https:\/\/ionic-task-app-.*\.vercel\.app$/,];
+const allowedOrigins: (string | RegExp)[] = [
+  'http://localhost:8100',
+  'http://localhost:4200',
+  /^https:\/\/ionic-task-app-.*\.vercel\.app$/,
+];
+
+if (process.env.FRONTEND_URL) {
+  // Remove any accidental trailing slash and add to the allowed list
+  allowedOrigins.push(process.env.FRONTEND_URL.trim().replace(/\/$/, ''));
+}
 
 app.use(
   cors({
     origin: allowedOrigins,
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
   })
 );
 app.use(express.json());
